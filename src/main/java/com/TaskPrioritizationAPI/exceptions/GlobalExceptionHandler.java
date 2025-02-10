@@ -14,11 +14,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(ex.getMessage(), ex.getStatus());
     }
 
-//    @ExceptionHandler(BaseServiceException.class)
-//    public ResponseEntity<String> handleWalletException(BaseServiceException ex) {
-//        return new ResponseEntity<>(ex.getMessage(), HttpStatus.valueOf(ex));
-//    }
-
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
